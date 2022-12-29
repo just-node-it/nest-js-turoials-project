@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  postgres:
+    container_name: 'zoo-postgres'
+    restart: unless-stopped
+    image: 'postgres'
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: zoo
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: postgres

@@ -1,0 +1,155 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Animal {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String
+  age         Int?
+  sex         String?
+  latinName   String?
+  habitat     String
+  description String?
+  menu        String?
+  dateArrived DateTime
+  photo       String?
+
+  classification   Classification? @relation(fields: [classificationId], references: [id])
+  classificationId Int?
+
+  employee   Employee? @relation(fields: [employeeId], references: [id])
+  employeeId Int?
+
+  exposition   Exposition? @relation(fields: [expositionId], references: [id])
+  expositionId Int?
+
+  parents  ParentChild[] @relation("AnimalParent")
+  children ParentChild[] @relation("AnimalChild")
+
+  @@map("animals")
+}
+
+model ParentChild {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  parent   Animal @relation("AnimalChild", fields: [parentId], references: [id])
+  parentId Int
+  child    Animal @relation("AnimalParent", fields: [childId], references: [id])
+  childId  Int
+
+  @@unique([parentId, childId])
+  @@map("animalsParentsChildren")
+}
+
+model Classification {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  type String
+  name String
+
+  animals Animal[]
+
+  parentCategoryId Int?
+  parentCategory   Classification?  @relation("taxonomicRank", fields: [parentCategoryId], references: [id])
+  childCategory    Classification[] @relation("taxonomicRank")
+
+  @@map("classifications")
+}
+
+model Employee {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  firstName String
+  lastName  String
+  email     String @unique
+
+  animals Animal[]
+
+  @@map("employees")
+}
+
+model Exposition {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  title       String
+  description String?
+
+  animals Animal[]
+
+  @@map("expositions")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email    String @unique
+  username String @unique
+  password String
+
+  @@map("users")
+}
+
+model Ticket {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String
+  price       Float
+  description String?
+  OrderItem   OrderItem[]
+
+  @@map("tickets")
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  state           String      @default("NEW")
+  customerName    String
+  customerSurname String
+  customerEmail   String
+  reservationDay  DateTime
+  orderItems      OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  amount   Int
+  ticketId Int
+  ticket   Ticket @relation(fields: [ticketId], references: [id])
+
+  orderId Int
+  order   Order @relation(fields: [orderId], references: [id])
+
+  @@map("orderItems")
+}
