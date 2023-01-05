@@ -1,0 +1,2127 @@
+{
+	"info": {
+		"_postman_id": "8bf0764e-e0c2-4252-bfc6-8d990bd7de36",
+		"name": "Zoologicka zahrada API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10219631"
+	},
+	"item": [
+		{
+			"name": "animals",
+			"item": [
+				{
+					"name": "GET - animals",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/animals?photo=false",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals"
+							],
+							"query": [
+								{
+									"key": "photo",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - animals",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/animals?age[gt]=1&age[lt]=10&parentsIncluded=true&childrenIncluded=true&parentId=2&classificationId=3&photo=false&sort=asc",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animals"
+									],
+									"query": [
+										{
+											"key": "age[gt]",
+											"value": "1"
+										},
+										{
+											"key": "age[lt]",
+											"value": "10"
+										},
+										{
+											"key": "parentsIncluded",
+											"value": "true"
+										},
+										{
+											"key": "childrenIncluded",
+											"value": "true"
+										},
+										{
+											"key": "parentId",
+											"value": "2"
+										},
+										{
+											"key": "classificationId",
+											"value": "3"
+										},
+										{
+											"key": "photo",
+											"value": "false"
+										},
+										{
+											"key": "sort",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET - animal by ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/animals/4?classificationTree=true",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals",
+								"4"
+							],
+							"query": [
+								{
+									"key": "classificationTree",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - animal",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/animal/1?classificationTree=true&parentsIncluded=true&childrenIncluded=true",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animal",
+										"1"
+									],
+									"query": [
+										{
+											"key": "classificationTree",
+											"value": "true"
+										},
+										{
+											"key": "parentsIncluded",
+											"value": "true"
+										},
+										{
+											"key": "childrenIncluded",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - animals",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Martin\",\n    \"age\": 3,\n    \"sex\": \"samec\",\n    \"latinName\": \"Atelerix\",\n    \"habitat\": \"Oblasti od Senegalu až po Súdán a Zambii.\",\n    \"description\": \"Africký trpasličí ježek je savec z rodu Atelerix z čeledi ježkovití.\",\n    \"menu\": \"hmyz\",\n    \"dateArrived\": \"2019-10-21\",\n    \"classificationId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/animals",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - animals",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Brutus\",\n    \"age\": 3,\n    \"sex\": \"samec\",\n    \"latinName\": \"Atelerix\",\n    \"habitat\": \"Oblasti od Senegalu až po Súdán a Zambii.\",\n    \"description\": \"Africký trpasličí ježek je savec z rodu Atelerix z čeledi ježkovití.\",\n    \"menu\": \"hmyz\",\n    \"dateArrived\": \"2019-10-21\",\n    \"classificationId\": 4\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/animals",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animals"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT - animal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sex\": \"samice\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/animals/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT - animal",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sex\": \"samice\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/animals/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animals",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - animal child",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/animals/4/child/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals",
+								"4",
+								"child",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - animal child",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/animals/1/child/2",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animals",
+										"1",
+										"child",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE - animal child",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/animals/1/child/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals",
+								"1",
+								"child",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE - animal child",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/animals/1/child/2",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animals",
+										"1",
+										"child",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - animal parent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/animals/4/parent/7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals",
+								"4",
+								"parent",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - animal parent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/animals/2/parent/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animals",
+										"2",
+										"parent",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE - animal parent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/animals/4/parent/7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals",
+								"4",
+								"parent",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE - animal parent",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/animals/2/parent/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animals",
+										"2",
+										"parent",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE - animal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/animals/7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"animals",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE - animal",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/animals/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"animals",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "expositions",
+			"item": [
+				{
+					"name": "GET - expositions",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/expositions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"expositions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - expositions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/expositions",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"expositions"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET - exposition by ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/expositions/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"expositions",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - exposition by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/expositions/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"expositions",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - expositions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Africké a Lví safari\",\n    \"description\": \"Cesta z Afrického safari vede dále do Lvího safari, kde na trase dlouhé 600 metrů, zavítáte mezi africké a berberské lvy a lvice.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/expositions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"expositions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - expositions",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Africké a Lví safari\",\n    \"description\": \"Cesta z Afrického safari vede dále do Lvího safari, kde na trase dlouhé 600 metrů, zavítáte mezi africké a berberské lvy a lvice.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/expositions",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"expositions"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT - exposition",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Expozice surikat (15 až 29 října)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/expositions/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"expositions",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT - exposition",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Expozice surikat (15 až 29 října)\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/expositions/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"expositions",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE - exposition",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/expositions/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"expositions",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE - exposition",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/expositions/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"expositions",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "employees",
+			"item": [
+				{
+					"name": "GET - employees",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/employees",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - employees",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/employees",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET - employee by ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/employees/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - employee by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/employees/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"employees",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - employees",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Karel\",\n    \"lastName\": \"Janeček\",\n    \"email\": \"karel.janecek@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/employees",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - employees",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Karel\",\n    \"lastName\": \"Janeček\",\n    \"email\": \"karel.janecek@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/employees",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT - employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"lastName\": \"Matějev\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/employees/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT - employee",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"lastName\": \"Matějev\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/employees/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"employees",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE - employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/employees/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE - employee",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/employees/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"employees",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "classifications",
+			"item": [
+				{
+					"name": "GET - classifications",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/classifications",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"classifications"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - classifications",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/classifications",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"classifications"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET - classifications by ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/classifications/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"classifications",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - classifications by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/classifications/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"classifications",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - classifications",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"SPECIES\",\n    \"name\": \"A. algirus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/classifications",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"classifications"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - classifications",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"SPECIES\",\n    \"name\": \"A. algirus\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/classifications",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"classifications"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT - classification",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"parentCategoryId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/classifications/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"classifications",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT - classification",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"parentCategoryId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/classifications/2",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"classifications",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE - classification",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/classifications/6",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"classifications",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE - classification",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/classifications/6",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"classifications",
+										"6"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET - classification tree",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/classifications/4/tree",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"classifications",
+								"4",
+								"tree"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - classification tree",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/classifications/4/tree",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"classifications",
+										"4",
+										"tree"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tickets",
+			"item": [
+				{
+					"name": "GET - tickets",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/tickets",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - tickets",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/tickets",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET - tickets by ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/tickets/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tickets",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - tickets by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/tickets/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - tickets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"student\",\n    \"price\": 60,\n    \"description\": \"slevněná částka za lístek pro studenty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/tickets",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - tickets",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"student\",\n    \"price\": 60,\n    \"description\": \"slevněná částka za lístek pro studenty\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/tickets",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT - ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 90\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/tickets/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"tickets",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT - ticket",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"price\": 90\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/tickets/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"tickets",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "GET - orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/orders",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET - order by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/orders/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - order by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/orders/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"orders",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - orders",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderItems\": [\n        {\n            \"ticketId\": 1,\n            \"amount\": 1\n        },\n        {\n            \"ticketId\": 2,\n            \"amount\": 3\n        }\n    ],\n    \"customerName\": \"Ing. Petr\",\n    \"customerSurname\": \"Pavel\",\n    \"customerEmail\": \"general@gmail.cz\",\n    \"reservationDay\": \"2022-10-15\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - orders",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"orderItems\": [\n        {\n            \"ticketId\": 1,\n            \"amount\": 1\n        },\n        {\n            \"ticketId\": 2,\n            \"amount\": 3\n        }\n    ],\n    \"customerName\": \"Ing. Petr\",\n    \"customerSurname\": \"Pavel\",\n    \"customerEmail\": \"general@gmail.cz\",\n    \"reservationDay\": \"2022-10-15\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/orders",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT - order state",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"PROCESSED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/orders/1/state",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders",
+								"1",
+								"state"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT - order state",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"state\": \"PROCESSED\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/orders/1/state",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"orders",
+										"1",
+										"state"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "POST - register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test.user@gmail.com\",\n    \"password\": \"secret-test-password\",\n    \"username\": \"test.user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test.user@gmail.com\",\n    \"password\": \"secret-test-password\",\n    \"username\": \"test.user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/register",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test.user@gmail.com\",\n    \"password\": \"secret-test-password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AUTH_URL}}",
+							"host": [
+								"{{AUTH_URL}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test.user@gmail.com\",\n    \"password\": \"secret-test-password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_URL}}",
+									"host": [
+										"{{AUTH_URL}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "GET - events",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/events",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - events",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/events",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GET - event by ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/events/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET - event by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/events/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"events",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "POST - events",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"křtiny malé guerézy pláštíkové\",\n    \"description\": \"V sobotu 17. prosince proběhnou v Zoo Praha křtiny malé guerézy pláštíkové. Kmotrem jedenáctiměsíčního mláděte se stane herec Tomáš Matonoha. Slavnostní křest začne v 11 hodin v pavilonu Rezervace Dja. Jeho hlavní expozici obývají guerézy spolu s rodinou goril nížinných.\",\n    \"startAt\": \"2022-12-17T11:00\",\n    \"endAt\": \"2022-12-17T14:00\",\n    \"maxVisitorsNumber\": 25,\n    \"registeredVisitorsNumber\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/events",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST - events",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"křtiny malé guerézy pláštíkové\",\n    \"description\": \"V sobotu 17. prosince proběhnou v Zoo Praha křtiny malé guerézy pláštíkové. Kmotrem jedenáctiměsíčního mláděte se stane herec Tomáš Matonoha. Slavnostní křest začne v 11 hodin v pavilonu Rezervace Dja. Jeho hlavní expozici obývají guerézy spolu s rodinou goril nížinných.\",\n    \"startAt\": \"2022-12-17T11:00\",\n    \"endAt\": \"2022-12-17T14:00\",\n    \"maxVisitorsNumber\": 25,\n    \"registeredVisitorsNumber\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/events",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT - event",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registeredVisitorsNumber\": 12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/events/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT - event",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"registeredVisitorsNumber\": 12\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/events/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"events",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE - event",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/events/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE - event",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/events/1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"events",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{ACCESS_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const authUrl = pm.environment.get('AUTH_URL');",
+					"",
+					"const testUserEmail = 'test.user@gmail.com';",
+					"const testUserSecret = 'secret-test-password';",
+					"",
+					"const getAccessTokenRequest = {",
+					"    method: 'POST',",
+					"    url: authUrl,",
+					"    header: {",
+					"        'Accept': 'application/json',",
+					"        'Content-Type': 'application/json',",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: { email: testUserEmail, password: testUserSecret }",
+					"    }",
+					"};",
+					"",
+					"pm.sendRequest(getAccessTokenRequest, (error, response) => {",
+					"    const { accessToken } = response.json();",
+					"    pm.environment.set('ACCESS_TOKEN', accessToken);",
+					"});",
+					"",
+					""
+				]
+			}
+		}
+	]
+}
