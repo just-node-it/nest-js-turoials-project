@@ -11,6 +11,7 @@ import { TicketModule } from './ticket/ticket.module';
 import { OrderModule } from './order/order.module';
 import { LoggerMiddleware } from './shared/middlewares/logger.midleware';
 import { OrderController } from './order/order.controller';
+import { EventModule } from './event/event.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { OrderController } from './order/order.controller';
     AuthModule,
     TicketModule,
     OrderModule,
+    EventModule,
   ],
   controllers: [],
   providers: [],

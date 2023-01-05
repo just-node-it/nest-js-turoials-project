@@ -153,3 +153,17 @@ model OrderItem {
 
   @@map("orderItems")
 }
+
+model Event {
+  id                       Int      @id @default(autoincrement())
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+  name                     String
+  description              String
+  startAt                  DateTime
+  endAt                    DateTime
+  maxVisitorsNumber        Int
+  registeredVisitorsNumber Int      @default(0)
+
+  @@map("events")
+}

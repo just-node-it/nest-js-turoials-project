@@ -54,6 +54,10 @@ export class OrderService {
       },
     });
 
+    if (!order) {
+      throw new NotFoundException();
+    }
+
     if (
       order.state === OrderStateEnum.FINISHED ||
       order.state === OrderStateEnum.REJECTED ||
